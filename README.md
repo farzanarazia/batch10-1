@@ -4,5 +4,3 @@
 2. java -jar target/my-test-app*.jar
 3. Aceess the application at http://localhost:8888/
 4. This should be successful
-5. Done
-
