@@ -16,10 +16,7 @@
       state: started
       enabled: true
       
-  - name: delete duplicate containers
-    docker_container:
-      name: bootcampjava
-      state: absent
+
       
   - name: deploy bootcamp application
     command: docker run -it -d -p 8888:8888 --name bootcampjava sfarzanarazia/hubimages1:bcjava1.0
