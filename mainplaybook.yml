@@ -1,0 +1,23 @@
+---
+- hosts: all
+  become: true
+  tasks:
+  - name: install java and docker
+    apt:
+      name:
+      - default-jdk
+      - docker.io
+      state: present
+
+
+  - name: start docker service
+    service:
+      name: docker
+      state: started
+      enabled: true
+  - name: deploy bootcamp application
+    command: sudo docker run -it -d -p 8080:8080 --name tomcat-bc sfarzanarazia/hubimages1:tomcatjava1.0
+  handlers:
+  - name: run update
+    apt:
+      update_cache: yes
