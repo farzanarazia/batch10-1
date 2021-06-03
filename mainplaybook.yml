@@ -15,8 +15,14 @@
       name: docker
       state: started
       enabled: true
+      
+  - name: delete duplicate containers
+    docker_container:
+      name: bootcampjava
+      state: absent
+      
   - name: deploy bootcamp application
-    command: sudo docker run -it -d -p 8080:8080 --name tomcat-bc sfarzanarazia/hubimages1:tomcatjava1.0
+    command: docker run -it -d -p 8888:8888 --name bootcampjava sfarzanarazia/hubimages1:bcjava1.0
   handlers:
   - name: run update
     apt:
